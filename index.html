@@ -8,35 +8,44 @@
   <meta name="description" content="Descubre las innovadoras placas madres con conectores invertidos: mejor gestión de cables, refrigeración optimizada y el futuro del ensamblaje de computadoras." />
   <style>
     /* =====================
-       1) VARIABLES Y ESTILOS GLOBALES - NUEVA PALETA DE COLORES
+       1) VARIABLES Y ESTILOS GLOBALES
        ===================== */
     :root{
-      --bg: #0a0a12;         /* Fondo principal más oscuro y tecnológico */
-      --card: #151522;       /* Color para tarjetas */
-      --muted: #a0a0b0;      /* Texto secundario */
-      --text: #e8e8f0;       /* Texto principal */
-      --brand: #6366f1;      /* Azul índigo tecnológico */
-      --brand-2: #8b5cf6;    /* Violeta tecnológico */
-      --accent: #10b981;     /* Verde esmeralda para destacar innovación */
-      --danger: #ef4444;     /* Rojo para advertencias */
+      --bg: #0a0a12;
+      --card: #151522;
+      --muted: #a0a0b0;
+      --text: #e8e8f0;
+      --brand: #6366f1;
+      --brand-2: #8b5cf6;
+      --accent: #10b981;
+      --danger: #ef4444;
       --shadow: 0 10px 30px rgba(0,0,0,.45);
       --glow: 0 0 20px rgba(99, 102, 241, 0.4);
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; 
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      margin: 0;
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background: 
-        url('https://png.pngtree.com/background/20230213/original/pngtree-technology-circuit-board-background-picture-image_2026805.jpg') center/cover fixed,
         radial-gradient(1200px 800px at 80% -20%, rgba(99,102,241,.15), transparent 70%),
         radial-gradient(900px 700px at 10% -10%, rgba(139,92,246,.18), transparent 60%),
         var(--bg);
-      color:var(--text);
-      line-height:1.6;
-      overflow-x: hidden; /* Evita scroll horizontal */
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    /* Overlay para mejorar legibilidad sobre la imagen de fondo */
+    
+    /* Overlay para mejorar legibilidad */
     body::before {
       content: '';
       position: fixed;
@@ -44,216 +53,460 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(10, 10, 18, 0.85);
+      background: rgba(10, 10, 18, 0.92);
       z-index: -1;
     }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:min(1200px, 92%); margin-inline:auto}
-    .section{padding:80px 0}
-    .section h2{font-size:clamp(1.6rem, 2.5vw + 1rem, 2.5rem); margin:0 0 24px; font-weight:700}
-    .muted{color:var(--muted)}
     
-    /* Efectos de brillo para elementos tecnológicos */
-    .tech-glow{
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    
+    .container {
+      width: min(1200px, 95%);
+      margin-inline: auto;
+    }
+    
+    .section {
+      padding: 60px 0;
+    }
+    
+    .section h2 {
+      font-size: clamp(1.6rem, 2.5vw + 1rem, 2.5rem);
+      margin: 0 0 24px;
+      font-weight: 700;
+    }
+    
+    .muted {
+      color: var(--muted);
+    }
+    
+    /* =====================
+       2) HEADER Y NAVEGACIÓN - CORREGIDO
+       ===================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: saturate(1.5) blur(12px);
+      background: linear-gradient(to right, rgba(10,10,18,.97), rgba(21,21,34,.97));
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      position: relative;
+    }
+    
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: .5px;
+      z-index: 101;
+    }
+    
+    .brand .logo {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      border-radius: 8px;
+      font-weight: bold;
+      color: white;
+      font-size: 14px;
+    }
+    
+    .nav-menu {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-menu li {
+      margin: 0;
+    }
+    
+    .nav-menu a {
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 1rem;
+      color: var(--muted);
+      transition: all 0.3s ease;
+      display: block;
+    }
+    
+    .nav-menu a:hover {
+      background: rgba(255,255,255,.1);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+    
+    .nav-menu a.active {
+      background: linear-gradient(135deg, rgba(99,102,241,.25), rgba(139,92,246,.2));
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.15);
       box-shadow: var(--glow);
-      transition: box-shadow 0.3s ease;
     }
-    .tech-glow:hover{
-      box-shadow: 0 0 25px rgba(99, 102, 241, 0.6);
+    
+    /* Menú hamburguesa - CORREGIDO */
+    .burger {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.2);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      z-index: 102;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
     }
-
+    
+    .burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      margin: 3px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    
+    .burger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .burger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .burger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
     /* =====================
-       2) HEADER Y NAVEGACIÓN - MEJORADO
+       3) MEDIA QUERIES PARA MÓVIL - CORREGIDAS
        ===================== */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(1.5) blur(12px);
-      background:linear-gradient(to right, rgba(10,10,18,.97), rgba(21,21,34,.97));
-      border-bottom:1px solid rgba(255,255,255,.1);
+    @media (max-width: 840px) {
+      /* Header y navegación móvil */
+      .burger {
+        display: flex;
+      }
+      
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(to bottom, rgba(10,10,18,.98), rgba(21,21,34,.98));
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 100px;
+        display: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,.5);
+        z-index: 99;
+        overflow-y: auto;
+      }
+      
+      .nav-menu.active {
+        display: flex;
+        animation: slideIn 0.3s ease;
+      }
+      
+      @keyframes slideIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      .nav-menu li {
+        margin: 10px 0;
+        width: 80%;
+        text-align: center;
+      }
+      
+      .nav-menu a {
+        padding: 15px 20px;
+        font-size: 1.1rem;
+        width: 100%;
+        border-radius: 12px;
+      }
+      
+      /* Ajustes generales para móvil */
+      .container {
+        width: 92%;
+      }
+      
+      .section {
+        padding: 40px 0;
+      }
+      
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 0;
+        min-height: auto;
+        gap: 30px;
+      }
+      
+      .hero h1 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+      }
+      
+      .grid.tech, .grid.videos, .grid.audios {
+        grid-template-columns: 1fr;
+      }
+      
+      .grid.images {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+      }
+      
+      .grid.images img {
+        height: 120px;
+      }
+      
+      .specs-table {
+        font-size: 0.85rem;
+      }
+      
+      .specs-table th, .specs-table td {
+        padding: 10px 12px;
+      }
+      
+      .filters {
+        justify-content: center;
+        gap: 8px;
+      }
+      
+      .filters .btn {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+      }
+      
+      /* Ajustes para formulario de contacto en móvil */
+      .grid[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+      }
+      
+      /* Ajustes para sección "Sobre mí" en móvil */
+      .grid[style*="grid-template-columns: 1fr 2fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+      }
     }
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0; position: relative;}
-    .brand{display:flex; gap:12px; align-items:center; font-weight:800; font-size:1.2rem; letter-spacing:.5px}
-    .brand .logo{width:32px; height:32px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--brand),var(--brand-2)); border-radius:8px; font-weight:bold; color:white; font-size:14px}
-    .nav ul{display:flex; gap:18px; list-style:none; padding:0; margin:0}
-    .nav a{padding:10px 14px; border-radius:12px; font-size:1rem; color:var(--muted); transition:all 0.3s ease}
-    .nav a:hover{background:rgba(255,255,255,.1); color:var(--text); transform:translateY(-2px)}
-    .nav a.active{background:linear-gradient(135deg, rgba(99,102,241,.25), rgba(139,92,246,.2)); color:var(--text); border:1px solid rgba(255,255,255,.15); box-shadow:var(--glow)}
-
-    /* Menú hamburguesa para móvil - MEJORADO */
-    .burger{display:none; background:transparent; border:1px solid rgba(255,255,255,.2); color:var(--text); padding:10px 12px; border-radius:10px; font-size:1.1rem; z-index: 60;}
-    @media (max-width: 840px){
-      .burger{display:inline-flex; align-items:center; gap:8px}
-      .nav ul{
-        position:absolute; 
-        left:0; 
-        right:0; 
-        top:100%; 
-        padding:20px; 
-        flex-direction:column; 
-        background:linear-gradient(to bottom, rgba(10,10,18,.98), rgba(21,21,34,.98)); 
-        border-bottom:1px solid rgba(255,255,255,.1); 
-        display:none; 
-        box-shadow:0 10px 30px rgba(0,0,0,.5);
-        z-index: 55;
+    
+    /* Mejoras para teléfonos muy pequeños */
+    @media (max-width: 480px) {
+      .container {
+        width: 90%;
       }
-      .nav ul.open{
-        display:flex;
-        animation: slideDown 0.3s ease;
+      
+      .section {
+        padding: 30px 0;
       }
-      @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+      
+      .grid.images {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .grid.images img {
+        height: 100px;
+      }
+      
+      .hero {
+        padding: 30px 0;
+      }
+      
+      .brand {
+        font-size: 1rem;
+      }
+      
+      .nav-menu a {
+        font-size: 1rem;
+        padding: 12px 16px;
       }
     }
-
+    
     /* =====================
-       3) SECCIÓN HERO / INTRODUCCIÓN
+       4) ESTILOS EXISTENTES (simplificados)
        ===================== */
-    .hero{
-      display:grid; 
-      grid-template-columns:1.1fr .9fr; 
-      gap:40px; 
-      align-items:center; 
-      padding:60px 0;
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 40px;
+      align-items: center;
+      padding: 60px 0;
       min-height: 80vh;
     }
-    .pill{
-      display:inline-flex; 
-      align-items:center; 
-      gap:10px; 
-      font-size:.95rem; 
-      color:var(--bg); 
-      background:linear-gradient(135deg, var(--brand), var(--brand-2)); 
-      padding:8px 16px; 
-      border-radius:999px; 
-      box-shadow:var(--shadow);
-      font-weight:600;
+    
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .95rem;
+      color: var(--bg);
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      padding: 8px 16px;
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      font-weight: 600;
       margin-bottom: 20px;
     }
-    .hero h1{
-      font-size:clamp(2rem, 3.5vw + 1rem, 3.5rem); 
-      margin:0 0 16px; 
-      line-height:1.1;
+    
+    .hero h1 {
+      font-size: clamp(2rem, 3.5vw + 1rem, 3.5rem);
+      margin: 0 0 16px;
+      line-height: 1.1;
       background: linear-gradient(135deg, var(--text), var(--brand));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .hero p{
-      color:var(--muted);
-      font-size:1.1rem;
+    
+    .hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
       margin-bottom: 30px;
     }
-    .card{
-      background:linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:20px; 
-      padding:24px; 
-      box-shadow:var(--shadow);
+    
+    .card {
+      background: linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
     }
-    @media (max-width: 920px){
-      .hero{grid-template-columns:1fr; text-align:center}
+    
+    .grid {
+      display: grid;
+      gap: 20px;
     }
-
-    .kbd{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; 
-      font-size:.9rem; 
-      border:1px solid rgba(255,255,255,.25); 
-      padding:.2rem .5rem; 
-      border-radius:8px;
-      background: rgba(255,255,255,.05);
+    
+    .grid.tech {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
-
-    /* =====================
-       4) SISTEMA DE GRILLAS Y TARJETAS
-       ===================== */
-    .grid{display:grid; gap:20px}
-    .grid.videos{grid-template-columns:repeat(auto-fill, minmax(280px,1fr))}
-    .grid.audios{grid-template-columns:repeat(auto-fill, minmax(280px,1fr))}
-    .grid.images{grid-template-columns:repeat(auto-fill, minmax(200px,1fr))}
-    .grid.tech{grid-template-columns:repeat(auto-fill, minmax(300px,1fr))}
-
-    figure{margin:0}
-    .thumb{
-      border-radius:16px; 
-      overflow:hidden; 
-      border:1px solid rgba(255,255,255,.12); 
-      background:linear-gradient(145deg, rgba(21,21,34,.9), rgba(10,10,18,.95));
+    
+    .grid.videos {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    .grid.images {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .tech-card {
+      background: linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 24px;
+      height: 100%;
       transition: all 0.3s ease;
     }
-    .thumb:hover{
+    
+    .tech-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(99,102,241,.6);
+      box-shadow: var(--glow);
+    }
+    
+    .thumb {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(145deg, rgba(21,21,34,.9), rgba(10,10,18,.95));
+      transition: all 0.3s ease;
+    }
+    
+    .thumb:hover {
       transform: translateY(-8px);
       border-color: rgba(99,102,241,.6);
       box-shadow: var(--glow);
     }
-    .thumb img{
-      width:100%; 
-      height:200px; 
-      object-fit:cover;
+    
+    .thumb img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
       transition: transform 0.5s ease;
     }
-    .thumb:hover img{
+    
+    .thumb:hover img {
       transform: scale(1.05);
     }
-    .thumb video{
-      width:100%; 
-      height:200px; 
-      object-fit:cover; 
-      display:block; 
-      background:#000
+    
+    .thumb video {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      background: #000;
     }
-    .thumb .pad{padding:16px}
-    .caption{
-      display:flex; 
-      align-items:flex-start; 
-      justify-content:space-between; 
-      gap:12px;
+    
+    .thumb .pad {
+      padding: 16px;
+    }
+    
+    .caption {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
       flex-direction: column;
     }
-    .caption h3{
-      font-size:1.2rem; 
-      margin:0 0 8px;
+    
+    .caption h3 {
+      font-size: 1.2rem;
+      margin: 0 0 8px;
       color: var(--text);
     }
-    .caption p{
+    
+    .caption p {
       color: var(--muted);
       font-size: 0.95rem;
       margin: 0;
       line-height: 1.5;
     }
-    .badge{
-      font-size:.8rem; 
-      padding:6px 12px; 
-      border-radius:999px; 
-      border:1px solid rgba(255,255,255,.15); 
-      color:var(--muted);
+    
+    .badge {
+      font-size: .8rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.15);
+      color: var(--muted);
       align-self: flex-start;
     }
-    .badge.primary{
+    
+    .badge.primary {
       background: linear-gradient(135deg, var(--brand), var(--brand-2));
       color: white;
       border: none;
     }
-
-    /* =====================
-       5) SECCIÓN DE TECNOLOGÍAS
-       ===================== */
-    .tech-card{
-      background:linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:16px;
-      padding:24px;
-      height:100%;
-      transition: all 0.3s ease;
-    }
-    .tech-card:hover{
-      transform: translateY(-5px);
-      border-color: rgba(99,102,241,.6);
-      box-shadow: var(--glow);
-    }
-    .tech-icon{
+    
+    .tech-icon {
       font-size: 2.5rem;
       margin-bottom: 16px;
       background: linear-gradient(135deg, var(--brand), var(--brand-2));
@@ -261,301 +514,161 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
-    /* =====================
-       6) GALERÍA DE IMÁGENES Y MODAL - MEJORADO PARA MÓVILES
-       ===================== */
-    .filters{
-      display:flex; 
-      gap:10px; 
-      flex-wrap:wrap; 
-      margin-bottom:20px
+    
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
     }
-    .filters .btn.active{
-      background:linear-gradient(135deg, var(--brand), var(--brand-2));
+    
+    .btn {
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 12px;
+      padding: 12px 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .btn:hover {
+      background: rgba(255,255,255,.15);
+      transform: translateY(-2px);
+    }
+    
+    .filters .btn.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
       color: white;
       border-color: transparent;
     }
-    .grid.images img{
-      width:100%; 
-      height:180px; 
-      object-fit:cover; 
-      border-radius:14px; 
-      border:1px solid rgba(255,255,255,.12); 
-      cursor:pointer;
+    
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: white;
+      border: 0;
+      padding: 14px 24px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      cursor: pointer;
       transition: all 0.3s ease;
-    }
-    .grid.images img:hover{
-      transform: scale(1.03);
-      border-color: rgba(99,102,241,.6);
-      box-shadow: var(--glow);
+      font-size: 1.1rem;
     }
     
-    /* Lightbox mejorado para móviles */
-    .lightbox{
-      position:fixed; 
-      inset:0; 
-      background:rgba(0,0,0,.95); 
-      display:flex; 
-      align-items:center; 
-      justify-content:center;
-      opacity:0; 
-      pointer-events:none; 
-      transition:.3s ease; 
-      padding:20px;
-      z-index: 1000;
+    .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(99,102,241,.5);
     }
-    .lightbox.open{
-      opacity:1; 
-      pointer-events:auto
+    
+    .top-btn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      opacity: .9;
+      z-index: 99;
     }
-    .lightbox-inner{
-      max-width:min(95vw, 1000px); 
-      max-height:90vh; 
-      display:flex; 
-      flex-direction: column;
-      gap:16px; 
-      background:linear-gradient(145deg, rgba(21,21,34,.98), rgba(10,10,18,.98)); 
-      border:1px solid rgba(255,255,255,.15); 
-      border-radius:20px; 
-      padding:20px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(20px);
-    }
-    .lightbox img{
-      max-height:65vh; 
-      width:auto; 
-      max-width: 100%;
-      align-self:center; 
-      border-radius:16px;
-      box-shadow: 0 20px 40px rgba(0,0,0,.5);
-    }
-    .lightbox .top{
-      display:flex; 
-      align-items:center; 
-      justify-content:space-between
-    }
-    .icon-btn{
-      background:rgba(255,255,255,.08); 
-      border:1px solid rgba(255,255,255,.2); 
-      color:var(--text); 
-      padding:10px 12px; 
-      border-radius:12px; 
-      cursor:pointer;
-      transition: all 0.3s ease;
-    }
-    .icon-btn:hover{
-      background:rgba(255,255,255,.15);
-      transform: scale(1.05);
-    }
-
-    /* =====================
-       7) COMPARACIÓN Y ESPECIFICACIONES
-       ===================== */
-    .specs-table{
-      width:100%;
+    
+    .specs-table {
+      width: 100%;
       border-collapse: collapse;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--shadow);
     }
-    .specs-table th, .specs-table td{
+    
+    .specs-table th, .specs-table td {
       padding: 16px 20px;
       text-align: left;
       border-bottom: 1px solid rgba(255,255,255,.12);
     }
-    .specs-table th{
+    
+    .specs-table th {
       background: linear-gradient(135deg, rgba(99,102,241,.25), rgba(139,92,246,.2));
       font-weight: 600;
     }
-    .specs-table tr:last-child td{
+    
+    .specs-table tr:last-child td {
       border-bottom: none;
     }
-    .specs-table tr:hover{
+    
+    .specs-table tr:hover {
       background: rgba(255,255,255,.05);
     }
-
-    /* =====================
-       8) CLASES DE UTILIDAD
-       ===================== */
-    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
-    .spacer{height:30px}
-    .cta{
-      display:inline-flex; 
-      align-items:center; 
-      gap:12px; 
-      background:linear-gradient(135deg, var(--brand), var(--brand-2)); 
-      color:white; 
-      border:0; 
-      padding:14px 24px; 
-      border-radius:14px; 
-      font-weight:700; 
-      box-shadow:var(--shadow); 
-      cursor:pointer;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
-    }
-    .cta:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(99,102,241,.5);
-    }
-    .top-btn{
-      position:fixed; 
-      right:24px; 
-      bottom:24px; 
-      opacity:.9;
-      z-index: 99;
-    }
-    .btn{
-      background:rgba(255,255,255,.08); 
-      color:var(--text); 
-      border:1px solid rgba(255,255,255,.15); 
-      border-radius:12px; 
-      padding:12px 18px;
-      cursor:pointer;
-      transition: all 0.3s ease;
-      font-weight: 500;
-    }
-    .btn:hover{
-      background:rgba(255,255,255,.15);
-      transform: translateY(-2px);
-    }
-
-    /* Estilos para formularios */
-    .form-group {
-      margin-bottom: 20px;
+    
+    .spacer {
+      height: 30px;
     }
     
-    .form-label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-      color: var(--text);
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s ease;
+      padding: 20px;
+      z-index: 1000;
     }
     
-    .form-input, .form-select, .form-textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .lightbox-inner {
+      max-width: min(95vw, 1000px);
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: linear-gradient(145deg, rgba(21,21,34,.98), rgba(10,10,18,.98));
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+    }
+    
+    .lightbox img {
+      max-height: 65vh;
+      width: auto;
+      max-width: 100%;
+      align-self: center;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.5);
+    }
+    
+    .lightbox .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .icon-btn {
+      background: rgba(255,255,255,.08);
       border: 1px solid rgba(255,255,255,.2);
-      background: rgba(255,255,255,.05);
       color: var(--text);
-      font-family: inherit;
-      font-size: 1rem;
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
       transition: all 0.3s ease;
     }
     
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
-      outline: none;
-      border-color: var(--brand);
-      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    .icon-btn:hover {
+      background: rgba(255,255,255,.15);
+      transform: scale(1.05);
     }
     
-    .form-select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a0a0b0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      background-size: 16px;
-    }
-    
-    .form-select option {
-      background: var(--card);
-      color: var(--text);
-    }
-    
-    .form-error {
-      color: var(--danger);
-      font-size: 0.85rem;
-      margin-top: 5px;
-      display: none;
-    }
-    
-    .form-input.error, .form-select.error, .form-textarea.error {
-      border-color: var(--danger);
-    }
-
-    /* Estilos para mensajes del formulario */
-    .form-message {
-      margin-top: 16px;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: 500;
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-    
-    .form-message.success {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid var(--accent);
-      color: var(--accent);
-    }
-    
-    .form-message.error {
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid var(--danger);
-      color: var(--danger);
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Compensa header sticky para anclajes */
-    section{scroll-margin-top:90px}
-
-    /* Reducción de movimiento para accesibilidad */
-    @media (prefers-reduced-motion: reduce){ 
-      html{scroll-behavior:auto} 
-      .thumb, .tech-card, .btn, .cta, .grid.images img{transition:none; transform:none}
-    }
-
-    /* Mejoras para tablets y móviles */
-    @media (max-width: 768px){
-      .section{padding:60px 0}
-      .hero{padding:40px 0; min-height: auto}
-      .grid.tech, .grid.videos, .grid.audios{grid-template-columns:1fr}
-      .specs-table{font-size:0.9rem}
-      .specs-table th, .specs-table td{padding:12px 16px}
-      
-      /* Mejoras específicas para galería en móviles */
-      .grid.images{grid-template-columns:repeat(auto-fill, minmax(150px,1fr))}
-      .grid.images img{height:140px}
-      
-      .lightbox-inner{
-        padding:15px;
-        max-height:85vh;
-      }
-      .lightbox img{
-        max-height:55vh;
-      }
-      
-      .filters{
-        justify-content:center;
-      }
-      .filters .btn{
-        padding:10px 14px;
-        font-size:0.9rem;
-      }
-    }
-
-    /* Mejoras para teléfonos muy pequeños */
-    @media (max-width: 480px){
-      .grid.images{grid-template-columns:repeat(2, 1fr)}
-      .grid.images img{height:120px}
-      
-      .lightbox-inner{
-        padding:12px;
-      }
-      .lightbox img{
-        max-height:50vh;
-      }
-    }
-
-    /* =====================
-       9) SECCIÓN DE MARCAS - NUEVA
-       ===================== */
+    /* Sección de marcas */
     .brands-section {
       text-align: center;
       margin: 3rem 0;
@@ -570,19 +683,17 @@
     }
     
     .brand-card {
-      background: white;
+      background: linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.12);
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.08);
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
-      background: linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.12);
     }
     
     .brand-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       border-color: rgba(99,102,241,.6);
       box-shadow: var(--glow);
     }
@@ -597,13 +708,13 @@
       font-weight: bold;
       color: var(--text);
     }
-
+    
     @media (max-width: 768px) {
       .brands-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-
+    
     @media (max-width: 480px) {
       .brands-grid {
         grid-template-columns: 1fr;
@@ -618,8 +729,12 @@
         <div class="logo" aria-hidden="true">🔌</div>
         ConectoresInversos-Tech
       </a>
-      <button id="burger" class="burger" aria-controls="menu" aria-expanded="false">☰ Menú</button>
-      <ul id="menu" role="menubar">
+      <button id="burger" class="burger" aria-controls="menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul id="menu" class="nav-menu" role="menubar">
         <li role="none"><a role="menuitem" class="active" href="#inicio">Inicio</a></li>
         <li role="none"><a role="menuitem" href="#tecnologia">Tecnología</a></li>
         <li role="none"><a role="menuitem" href="#ventajas">Ventajas</a></li>
@@ -644,7 +759,7 @@
           <span style="font-size:1.2rem">→</span>
         </a>
       </div>
-      <div class="card tech-glow">
+      <div class="card">
         <details open>
           <summary><strong>¿Qué son las Placas Madres con Conectores Inversos?</strong></summary>
           <p>Las placas madre con conectores invertidos representan un cambio radical en el diseño tradicional, moviendo todos los puertos y conectores a la parte posterior de la placa para una gestión de cables optimizada.</p>
@@ -688,98 +803,32 @@
       </div>
     </section>
 
-    <!-- VENTAJAS Y COMPARACIÓN -->
-    <section id="ventajas" class="section">
-      <h2>💡 Ventajas Principales</h2>
-      <p class="muted">Comparativa entre placas madre tradicionales y las nuevas con conectores invertidos.</p>
+    <!-- SECCIÓN DE MARCAS -->
+    <section class="section">
+      <h2>🏢 Marcas que ofrecen esta tecnología</h2>
+      <p class="muted">Descubre los principales fabricantes que han adoptado la tecnología de conectores invertidos.</p>
       
-      <div class="card">
-        <table class="specs-table">
-          <thead>
-            <tr>
-              <th>Característica</th>
-              <th>Placa Madre Tradicional</th>
-              <th>Placa Madre Conectores Inversos</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Gestión de cables</strong></td>
-              <td>Cables visibles en el frente</td>
-              <td>Cables ocultos en la parte posterior</td>
-            </tr>
-            <tr>
-              <td><strong>Flujo de aire</strong></td>
-              <td>Obstruido por cables frontales</td>
-              <td>Máxima circulación sin obstáculos</td>
-            </tr>
-            <tr>
-              <td><strong>Estética</strong></td>
-              <td>Cables visibles y desordenados</td>
-              <td>Diseño limpio y minimalista</td>
-            </tr>
-            <tr>
-              <td><strong>Mantenimiento</strong></td>
-              <td>Complejo, requiere reorganización</td>
-              <td>Acceso organizado desde la parte posterior</td>
-            </tr>
-            <tr>
-              <td><strong>Refrigeración</strong></td>
-              <td>Obstruida por cableado frontal</td>
-              <td>Optimizada sin interferencias</td>
-            </tr>
-            <tr>
-              <td><strong>Compatibilidad</strong></td>
-              <td>Estándar universal</td>
-              <td>Requiere gabinetes específicos</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="brands-grid">
+        <div class="brand-card">
+          <div class="brand-logo">ASUS</div>
+          <div class="brand-name">ASUS</div>
+        </div>
+        <div class="brand-card">
+          <div class="brand-logo">MSI</div>
+          <div class="brand-name">MSI</div>
+        </div>
+        <div class="brand-card">
+          <div class="brand-logo">GIGABYTE</div>
+          <div class="brand-name">Gigabyte</div>
+        </div>
+        <div class="brand-card">
+          <div class="brand-logo">ASRock</div>
+          <div class="brand-name">ASRock</div>
+        </div>
       </div>
     </section>
 
-    <!-- GALERÍA DE VIDEOS EXPLICATIVOS -->
-    <section id="modelos" class="section">
-      <h2>🎬 Demostraciones en Video</h2>
-      <p class="muted">Videos explicativos sobre el funcionamiento y ventajas de las placas madre con conectores invertidos.</p>
-      <div class="grid videos">
-        <figure class="thumb tech-glow">
-          <video preload="none" controls>
-            <source src="../proyecto/asus.mp4" type="video/mp4">
-            Tu navegador no soporta video HTML5.
-          </video>
-          <div class="pad caption">
-            <h3>ASUS ROG MAXIMUS Z790 HERO BTF</h3>
-            <p>Placa madre premium con conectores traseros y diseño optimizado para gaming de alto rendimiento.</p>
-            <span class="badge">ROG Series</span>
-          </div>
-        </figure>
-
-        <figure class="thumb tech-glow">
-          <video preload="none" controls>
-            <source src="../proyecto/msi.mp4" type="video/mp4">
-          </video>
-          <div class="pad caption">
-            <h3>MSI Z790 Project Zero</h3>
-            <p>Innovadora placa base con diseño de conectores traseros para un ensamblaje limpio y ordenado.</p>
-            <span class="badge">Project Series</span>
-          </div>
-        </figure>
-
-        <figure class="thumb tech-glow">
-          <video preload="none" controls>
-            <source src="../proyecto/gigabytre.mp4" type="video/mp4">
-          </video>
-          <div class="pad caption">
-            <h3>B650E AORUS Stealth Ice</h3>
-            <p>Placa base AMD con diseño de conectores invertidos y estética minimalista en blanco.</p>
-            <span class="badge">AORUS Series</span>
-          </div>
-        </figure>
-      </div>
-    </section>
-
-    <!-- GALERÍA DE IMÁGENES - CORREGIDA Y MEJORADA -->
+    <!-- GALERÍA DE IMÁGENES -->
     <section class="section">
       <h2>🖼️ Galería de Productos</h2>
       <p class="muted">Imágenes de los modelos más innovadores de placas madre con conectores invertidos.</p>
@@ -829,7 +878,7 @@
              data-description="Ejemplo de placa madre con diseño de conectores inversos - Todos los puertos ubicados en la parte posterior." />
       </div>
 
-      <!-- Modal / Lightbox - MEJORADO -->
+      <!-- Modal / Lightbox -->
       <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lbCaption">
         <div class="lightbox-inner">
           <div class="top">
@@ -842,602 +891,171 @@
       </div>
     </section>
 
-    <!-- EL FUTURO DE LA TECNOLOGÍA -->
-    <section id="futuro" class="section">
-      <h2>🔮 El Futuro de los Conectores Invertidos</h2>
-      <p class="muted">Hacia dónde se dirige esta tecnología revolucionaria y qué podemos esperar.</p>
-      
-      <div class="grid tech">
-        <div class="tech-card">
-          <div class="tech-icon">🚀</div>
-          <h3>Integración Total</h3>
-          <p class="muted">Próximos modelos incorporarán sistemas de gestión de cables automatizados y rutas de refrigeración predefinidas para máximo rendimiento.</p>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🧠</div>
-          <h3>IA en Gestión Térmica</h3>
-          <p class="muted">Sistemas de inteligencia artificial que optimizan automáticamente el flujo de aire según los componentes instalados y patrones de uso.</p>
-        </div>
-        
-        <div class="tech-card">
-          <div class="tech-icon">🔌</div>
-          <h3>Conectores Modulares</h3>
-          <p class="muted">Desarrollo de sistemas de conexión modulares que permiten personalizar la disposición de puertos según necesidades específicas.</p>
-        </div>
-      </div>
-      
-      <div class="spacer"></div>
-      <div class="card">
-        <h3>Próximos Lanzamientos</h3>
-        <p>Las principales marcas ya han anunciado sus roadmap para los próximos años:</p>
-        <ul>
-          <li><strong>2024:</strong> Primera generación comercial a gran escala</li>
-          <li><strong>2025:</strong> Integración con estándares PCIe 6.0 y conectores reversibles</li>
-          <li><strong>2026:</strong> Sistemas modulares con paneles intercambiables</li>
-          <li><strong>2027:</strong> Adopción masiva en el mercado de consumo y empresarial</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===================================================== -->
-    <!-- SECCIÓN CONTÁCTANOS -->
-    <!-- ===================================================== -->
-    <section id="contacto" class="section">
-      <h2>📞 Contáctanos</h2>
-      <p class="muted">¿Tienes preguntas sobre nuestras placas madre con conectores invertidos? Estamos aquí para ayudarte.</p>
-      
-      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 40px;">
-        <!-- Información de contacto -->
-        <div class="card">
-          <h3>Información de Contacto</h3>
-          <p class="muted">Ponte en contacto con nosotros a través de cualquiera de estos medios:</p>
-          
-          <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 24px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div class="tech-icon" style="font-size: 1.5rem; margin: 0;">📧</div>
-              <div>
-                <strong>Email</strong>
-                <p class="muted" style="margin: 4px 0 0;">info@conectoresinversos.com</p>
-              </div>
-            </div>
-            
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div class="tech-icon" style="font-size: 1.5rem; margin: 0;">📱</div>
-              <div>
-                <strong>Teléfono</strong>
-                <p class="muted" style="margin: 4px 0 0;">+1 (555) 123-4567</p>
-              </div>
-            </div>
-            
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div class="tech-icon" style="font-size: 1.5rem; margin: 0;">📍</div>
-              <div>
-                <strong>Dirección</strong>
-                <p class="muted" style="margin: 4px 0 0;">Innovation Tech Park, Silicon Valley, CA</p>
-              </div>
-            </div>
-            
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div class="tech-icon" style="font-size: 1.5rem; margin: 0;">🕒</div>
-              <div>
-                <strong>Horario de atención</strong>
-                <p class="muted" style="margin: 4px 0 0;">Lun-Vie: 9:00 - 18:00</p>
-              </div>
-            </div>
-            <div style="margin-top: 16px;">
-              <h4 style="margin-bottom: 8px; font-size: 1rem; color: var(--muted);">📍 Ubicación</h4>
-              <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); height: 120px; background: linear-gradient(145deg, rgba(21,21,34,.9), rgba(10,10,18,.95));">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117233.53245142228!2d-57.67351339999999!3d-25.2963451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945dc13ad2f83227%3A0x6a762a206838d5f6!2sAsunci%C3%B3n%2C%20Paraguay!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
-                  width="100%" 
-                  height="100%" 
-                  style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(85%);" 
-                  allowfullscreen="" 
-                  loading="lazy" 
-                  referrerpolicy="no-referrer-when-downgrade"
-                  title="Mapa de Asunción, Paraguay">
-                </iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Formulario de contacto -->
-        <div class="card">
-          <h3>Envíanos un mensaje</h3>
-          <form id="contactForm" style="display: flex; flex-direction: column; gap: 16px;">
-            <div class="form-group">
-              <label for="nombre" class="form-label">Nombre *</label>
-              <input type="text" id="nombre" name="nombre" class="form-input" required>
-              <div class="form-error" id="nombreError">Por favor ingresa tu nombre</div>
-            </div>
-            
-            <div class="form-group">
-              <label for="email" class="form-label">Email *</label>
-              <input type="email" id="email" name="email" class="form-input" required>
-              <div class="form-error" id="emailError">Por favor ingresa un email válido</div>
-            </div>
-            
-            <div class="form-group">
-              <label for="asunto" class="form-label">Asunto *</label>
-              <select id="asunto" name="asunto" class="form-select" required>
-                <option value="" disabled selected>Selecciona un asunto</option>
-                <option value="consulta">Consulta general</option>
-                <option value="soporte">Soporte técnico</option>
-                <option value="ventas">Información de ventas</option>
-                <option value="colaboracion">Propuesta de colaboración</option>
-                <option value="otro">Otro</option>
-              </select>
-              <div class="form-error" id="asuntoError">Por favor selecciona un asunto</div>
-            </div>
-            
-            <div class="form-group">
-              <label for="mensaje" class="form-label">Mensaje *</label>
-              <textarea id="mensaje" name="mensaje" rows="5" class="form-textarea" required></textarea>
-              <div class="form-error" id="mensajeError">Por favor ingresa tu mensaje</div>
-            </div>
-            
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <input type="checkbox" id="newsletter" name="newsletter" style="transform: scale(1.2);">
-              <label for="newsletter" style="font-size: 0.9rem;">Suscribirme al newsletter para recibir novedades sobre placas madre con conectores invertidos</label>
-            </div>
-            
-            <button type="submit" class="cta" style="width: 100%; justify-content: center; margin-top: 10px;">
-              Enviar Mensaje
-              <span style="font-size:1.2rem">→</span>
-            </button>
-          </form>
-          
-          <!-- Mensajes de confirmación y error -->
-          <div id="formSuccessMessage" class="form-message success">
-            <p style="margin: 0;">✅ ¡Mensaje enviado correctamente! Te contactaremos pronto.</p>
-          </div>
-          
-          <div id="formErrorMessage" class="form-message error">
-            <p style="margin: 0;">❌ Por favor corrige los errores en el formulario antes de enviar.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================================================== -->
-    <!-- SECCIÓN SOBRE MÍ - CORREGIDA -->
-    <!-- ===================================================== -->
-    <section id="sobre-mi" class="section">
-      <h2>👨‍💻 Sobre Mí</h2>
-      <p class="muted">Conoce más sobre el creador detrás de este proyecto.</p>
-      
-      <div class="grid" style="grid-template-columns: 1fr 2fr; gap: 40px; align-items: start;">
-        <!-- Tarjeta de perfil -->
-        <div class="card" style="text-align: center;">
-          <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; border: 3px solid var(--brand);">
-            <img 
-              src="../proyecto/yo.jpeg" 
-              alt="Foto de Giovanni Dominguez"
-              style="width: 100%; height: 100%; object-fit: cover;"
-            >
-          </div>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
-            <h3 style="margin: 0;">Giovanni Dominguez</h3>
-            <span class="badge">Técnico en informática</span>
-          </div>
-          
-          <!-- Especialidades al lado del nombre -->
-          <div style="margin-bottom: 16px;">
-            <p style="margin: 0 0 8px; font-size: 0.9rem;"><strong>Especialidades:</strong></p>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
-              <span class="badge">Hardware</span>
-              <span class="badge">Diseño de PC</span>
-              <span class="badge">Refrigeración</span>
-            </div>
-          </div>
-          
-          <!-- Botones de contacto -->
-          <div style="display: flex; gap: 10px; justify-content: center; margin-top: 16px;">
-            <a href="mailto:giovanniorlando2000@gmail.com" class="btn" style="display: inline-flex; align-items: center; gap: 8px;">
-              <span>📧</span> Email
-            </a>
-            <a href="#" class="btn" style="display: inline-flex; align-items: center; gap: 8px;">
-              <span>💼</span> LinkedIn
-            </a>
-          </div>
-        </div>
-        
-        <!-- Información personal y profesional -->
-        <div class="card">
-          <h3>Mi Historia</h3>
-          <p class="muted">Soy un técnico en informática apasionado por la tecnología y el hardware. Mi interés por las placas madre con conectores invertidos nace de la búsqueda constante de mejoras en el diseño y ensamblaje de computadoras, buscando siempre optimizar el rendimiento y la estética de los sistemas.</p>
-          
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px;">
-            <div>
-              <h4 style="margin: 0 0 12px;">Experiencia</h4>
-              <ul style="margin: 0; padding-left: 20px;">
-                <li>Especialista en hardware</li>
-                <li>Técnico en CCTV</li>
-                <li>Consultor en ensamblaje de PC</li>
-                <li>Soporte y Mantenimiento</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 style="margin: 0 0 12px;">Educación</h4>
-              <ul style="margin: 0; padding-left: 20px;">
-                <li>Ingeniería en informática (Aun cursando)</li>
-                <li>Técnico en informática</li>
-                <li>Técnico superior en informática-SNPP (Aun cursando)</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div style="margin-top: 24px;">
-            <h4>Proyectos Destacados</h4>
-            <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
-              <div class="tech-card" style="padding: 16px;">
-                <div class="tech-icon" style="font-size: 1.5rem; margin-bottom: 8px;">🔌</div>
-                <h5 style="margin: 0 0 8px;">Conectores Invertidos</h5>
-                <p class="muted" style="font-size: 0.85rem; margin: 0;">Investigación y desarrollo de placas madre con diseño invertido</p>
-              </div>
-              
-              <div class="tech-card" style="padding: 16px;">
-                <div class="tech-icon" style="font-size: 1.5rem; margin-bottom: 8px;">💨</div>
-                <h5 style="margin: 0 0 8px;">Cooling Innovations</h5>
-                <p class="muted" style="font-size: 0.85rem; margin: 0;">Blog sobre sistemas de refrigeración optimizados</p>
-              </div>
-              
-              <div class="tech-card" style="padding: 16px;">
-                <div class="tech-icon" style="font-size: 1.5rem; margin-bottom: 8px;">🔧</div>
-                <h5 style="margin: 0 0 8px;">PC Build Lab</h5>
-                <p class="muted" style="font-size: 0.85rem; margin: 0;">Laboratorio de ensamblaje y pruebas de hardware</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <button id="toTop" class="cta top-btn" aria-label="Volver al inicio">↑ Top</button>
   </main>
-
-  <button id="toTop" class="cta top-btn" aria-label="Volver al inicio">↑ Top</button>
 
   <script>
     // =====================================================
-    //  JAVASCRIPT PARA PLACAS MADRES CONECTORES INVERSOS
+    //  JAVASCRIPT CORREGIDO
     // =====================================================
 
-    // 1) Menú hamburguesa para dispositivos móviles - MEJORADO
-    const burger = document.getElementById('burger');
-    const menu = document.getElementById('menu');
-    if (burger && menu) {
-      burger.addEventListener('click', (e) => {
-        e.stopPropagation(); // Evita que el clic se propague
-        const open = menu.classList.toggle('open');
-        burger.setAttribute('aria-expanded', String(open));
-        
-        // Cambiar ícono cuando está abierto
-        burger.textContent = open ? '✕ Cerrar' : '☰ Menú';
-      });
-
-      // Cerrar menú al hacer clic fuera de él
-      document.addEventListener('click', (e) => {
-        if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) {
-          menu.classList.remove('open');
-          burger.setAttribute('aria-expanded', 'false');
-          burger.textContent = '☰ Menú';
-        }
-      });
-
-      // Cerrar menú al hacer clic en un enlace (en móviles)
-      menu.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A' && window.innerWidth <= 840) {
-          menu.classList.remove('open');
-          burger.setAttribute('aria-expanded', 'false');
-          burger.textContent = '☰ Menú';
-        }
-      });
-    }
-
-    // 2) Navegación activa según scroll (Intersection Observer)
-    const navLinks = Array.from(document.querySelectorAll('header .nav a[href^="#"]'));
-    const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-    
-    if (sections.length > 0) {
-      const observerOptions = {
-        rootMargin: '-20% 0px -60% 0px',
-        threshold: 0.1
-      };
+    // 1) Menú hamburguesa - CORREGIDO
+    document.addEventListener('DOMContentLoaded', function() {
+      const burger = document.getElementById('burger');
+      const menu = document.getElementById('menu');
       
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = '#' + entry.target.id;
-            const correspondingLink = navLinks.find(link => link.getAttribute('href') === id);
-            
-            if (correspondingLink) {
-              navLinks.forEach(link => link.classList.remove('active'));
-              correspondingLink.classList.add('active');
-            }
+      if (burger && menu) {
+        burger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          
+          // Alternar clases
+          menu.classList.toggle('active');
+          burger.classList.toggle('active');
+          
+          // Actualizar atributo ARIA
+          const isExpanded = menu.classList.contains('active');
+          burger.setAttribute('aria-expanded', isExpanded);
+          
+          // Prevenir scroll del body cuando el menú está abierto
+          document.body.style.overflow = isExpanded ? 'hidden' : '';
+        });
+
+        // Cerrar menú al hacer clic en un enlace (en móviles)
+        menu.addEventListener('click', function(e) {
+          if (e.target.tagName === 'A' && window.innerWidth <= 840) {
+            menu.classList.remove('active');
+            burger.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
           }
         });
-      }, observerOptions);
-      
-      sections.forEach(section => sectionObserver.observe(section));
-    }
 
-    // 3) Botón "Volver arriba"
-    const toTopButton = document.getElementById('toTop');
-    if (toTopButton) {
-      toTopButton.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
+        // Cerrar menú al hacer clic fuera de él
+        document.addEventListener('click', function(e) {
+          if (menu.classList.contains('active') && 
+              !menu.contains(e.target) && 
+              !burger.contains(e.target)) {
+            menu.classList.remove('active');
+            burger.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          }
         });
-      });
-      
-      // Mostrar/ocultar botón según scroll
-      window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-          toTopButton.style.opacity = '1';
-          toTopButton.style.visibility = 'visible';
-        } else {
-          toTopButton.style.opacity = '0';
-          toTopButton.style.visibility = 'hidden';
-        }
-      });
-    }
 
-    // 4) Filtros para galería de imágenes - CORREGIDO
-    const filterBar = document.querySelector('.filters');
-    const imageGrid = document.getElementById('imageGrid');
-    
-    if (filterBar && imageGrid) {
-      filterBar.addEventListener('click', (event) => {
-        // Asegurarse de que se hizo clic en un botón de filtro
-        const filterButton = event.target.closest('button');
-        if (!filterButton) return;
-        
-        // Obtener la categoría del filtro
-        const filterValue = filterButton.getAttribute('data-filter');
-        
-        // Actualizar botones activos
-        filterBar.querySelectorAll('button').forEach(btn => {
-          btn.classList.remove('active');
+        // Cerrar menú con tecla Escape
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            burger.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          }
         });
-        filterButton.classList.add('active');
+      }
+
+      // 2) Botón "Volver arriba"
+      const toTopButton = document.getElementById('toTop');
+      if (toTopButton) {
+        toTopButton.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
         
-        // Filtrar imágenes - CORREGIDO: usar data-category en lugar de data-cat
-        const images = imageGrid.querySelectorAll('img');
-        images.forEach(img => {
-          if (filterValue === 'todos' || img.getAttribute('data-category') === filterValue) {
-            img.style.display = 'block';
+        // Mostrar/ocultar botón según scroll
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            toTopButton.style.opacity = '1';
+            toTopButton.style.visibility = 'visible';
           } else {
-            img.style.display = 'none';
+            toTopButton.style.opacity = '0';
+            toTopButton.style.visibility = 'hidden';
           }
         });
-      });
-    }
-
-    // 5) Modal/Lightbox para imágenes - MEJORADO
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lbImg');
-    const lightboxCaption = document.getElementById('lbCaption');
-    const lightboxDescription = document.getElementById('lbDescription');
-    const lightboxClose = document.getElementById('lbClose');
-    
-    if (lightbox && imageGrid) {
-      // Abrir lightbox al hacer clic en una imagen
-      imageGrid.addEventListener('click', (event) => {
-        if (event.target.tagName === 'IMG') {
-          const imgSrc = event.target.getAttribute('src');
-          const imgAlt = event.target.getAttribute('alt');
-          const imgDescription = event.target.getAttribute('data-description') || 'Descripción no disponible';
-          
-          lightboxImg.setAttribute('src', imgSrc);
-          lightboxImg.setAttribute('alt', imgAlt);
-          lightboxCaption.textContent = imgAlt;
-          lightboxDescription.textContent = imgDescription;
-          
-          lightbox.classList.add('open');
-          document.body.style.overflow = 'hidden'; // Prevenir scroll del body
-        }
-      });
-      
-      // Cerrar lightbox
-      function closeLightbox() {
-        lightbox.classList.remove('open');
-        document.body.style.overflow = ''; // Restaurar scroll
+        
+        // Estado inicial
+        toTopButton.style.opacity = '0';
+        toTopButton.style.visibility = 'hidden';
       }
-      
-      lightboxClose.addEventListener('click', closeLightbox);
-      lightbox.addEventListener('click', (event) => {
-        if (event.target === lightbox) {
-          closeLightbox();
-        }
-      });
-      
-      // Cerrar con tecla Escape
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && lightbox.classList.contains('open')) {
-          closeLightbox();
-        }
-      });
-    }
 
-    // 6) Efectos de hover mejorados para tarjetas tecnológicas
-    const techCards = document.querySelectorAll('.tech-card, .thumb');
-    techCards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-8px)';
-      });
+      // 3) Filtros para galería de imágenes
+      const filterBar = document.querySelector('.filters');
+      const imageGrid = document.getElementById('imageGrid');
       
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-      });
-    }
+      if (filterBar && imageGrid) {
+        filterBar.addEventListener('click', function(event) {
+          const filterButton = event.target.closest('button');
+          if (!filterButton) return;
+          
+          const filterValue = filterButton.getAttribute('data-filter');
+          
+          // Actualizar botones activos
+          filterBar.querySelectorAll('button').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          filterButton.classList.add('active');
+          
+          // Filtrar imágenes
+          const images = imageGrid.querySelectorAll('img');
+          images.forEach(img => {
+            if (filterValue === 'todos' || img.getAttribute('data-category') === filterValue) {
+              img.style.display = 'block';
+            } else {
+              img.style.display = 'none';
+            }
+          });
+        });
+      }
 
-    // 7) Control de reproducción para videos (evitar superposición de audio)
-    const videos = document.querySelectorAll('video');
-    videos.forEach(video => {
-      video.addEventListener('play', () => {
-        // Pausar otros videos cuando uno comienza a reproducirse
-        videos.forEach(otherVideo => {
-          if (otherVideo !== video && !otherVideo.paused) {
-            otherVideo.pause();
+      // 4) Lightbox para imágenes
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lbImg');
+      const lightboxCaption = document.getElementById('lbCaption');
+      const lightboxDescription = document.getElementById('lbDescription');
+      const lightboxClose = document.getElementById('lbClose');
+      
+      if (lightbox && imageGrid) {
+        // Abrir lightbox al hacer clic en una imagen
+        imageGrid.addEventListener('click', function(event) {
+          if (event.target.tagName === 'IMG') {
+            const imgSrc = event.target.getAttribute('src');
+            const imgAlt = event.target.getAttribute('alt');
+            const imgDescription = event.target.getAttribute('data-description') || 'Descripción no disponible';
+            
+            lightboxImg.setAttribute('src', imgSrc);
+            lightboxImg.setAttribute('alt', imgAlt);
+            lightboxCaption.textContent = imgAlt;
+            lightboxDescription.textContent = imgDescription;
+            
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
           }
         });
-      });
-    }
-
-    // 8) Animación de aparición para elementos al hacer scroll
-    const animatedElements = document.querySelectorAll('.tech-card, .thumb, .card');
-    
-    const fadeInObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+        
+        // Cerrar lightbox
+        function closeLightbox() {
+          lightbox.classList.remove('open');
+          document.body.style.overflow = '';
         }
-      });
-    }, { threshold: 0.1 });
-    
-    // Configurar estado inicial y observar
-    animatedElements.forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      fadeInObserver.observe(el);
+        
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function(event) {
+          if (event.target === lightbox) {
+            closeLightbox();
+          }
+        });
+        
+        // Cerrar con tecla Escape
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+            closeLightbox();
+          }
+        });
+      }
+
+      console.log('Sitio web cargado correctamente - Menú móvil funcional');
     });
-
-    // =====================================================
-    //  FUNCIONALIDAD PARA LA SECCIÓN DE CONTACTO
-    // =====================================================
-
-    // Manejo del formulario de contacto
-    const contactForm = document.getElementById('contactForm');
-    const formSuccessMessage = document.getElementById('formSuccessMessage');
-    const formErrorMessage = document.getElementById('formErrorMessage');
-
-    // Función para validar email
-    function isValidEmail(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    }
-
-    // Función para mostrar error
-    function showError(inputId, errorId, message) {
-      document.getElementById(inputId).classList.add('error');
-      document.getElementById(errorId).textContent = message;
-      document.getElementById(errorId).style.display = 'block';
-    }
-
-    // Función para limpiar error
-    function clearError(inputId, errorId) {
-      document.getElementById(inputId).classList.remove('error');
-      document.getElementById(errorId).style.display = 'none';
-    }
-
-    // Función para mostrar mensaje
-    function showMessage(messageElement, hideAfter = 5000) {
-      // Ocultar todos los mensajes primero
-      formSuccessMessage.style.display = 'none';
-      formErrorMessage.style.display = 'none';
-      
-      // Mostrar el mensaje específico
-      messageElement.style.display = 'block';
-      
-      // Ocultar después del tiempo especificado
-      if (hideAfter > 0) {
-        setTimeout(() => {
-          messageElement.style.display = 'none';
-        }, hideAfter);
-      }
-    }
-
-    if (contactForm && formSuccessMessage && formErrorMessage) {
-      // Validación en tiempo real
-      document.getElementById('nombre').addEventListener('input', function() {
-        if (this.value.trim() !== '') {
-          clearError('nombre', 'nombreError');
-        }
-      });
-
-      document.getElementById('email').addEventListener('input', function() {
-        if (isValidEmail(this.value)) {
-          clearError('email', 'emailError');
-        }
-      });
-
-      document.getElementById('asunto').addEventListener('change', function() {
-        if (this.value !== '') {
-          clearError('asunto', 'asuntoError');
-        }
-      });
-
-      document.getElementById('mensaje').addEventListener('input', function() {
-        if (this.value.trim() !== '') {
-          clearError('mensaje', 'mensajeError');
-        }
-      });
-
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        let isValid = true;
-        
-        // Validar nombre
-        const nombre = document.getElementById('nombre').value.trim();
-        if (nombre === '') {
-          showError('nombre', 'nombreError', 'Por favor ingresa tu nombre');
-          isValid = false;
-        }
-        
-        // Validar email
-        const email = document.getElementById('email').value;
-        if (email === '') {
-          showError('email', 'emailError', 'Por favor ingresa tu email');
-          isValid = false;
-        } else if (!isValidEmail(email)) {
-          showError('email', 'emailError', 'Por favor ingresa un email válido');
-          isValid = false;
-        }
-        
-        // Validar asunto
-        const asunto = document.getElementById('asunto').value;
-        if (asunto === '') {
-          showError('asunto', 'asuntoError', 'Por favor selecciona un asunto');
-          isValid = false;
-        }
-        
-        // Validar mensaje
-        const mensaje = document.getElementById('mensaje').value.trim();
-        if (mensaje === '') {
-          showError('mensaje', 'mensajeError', 'Por favor ingresa tu mensaje');
-          isValid = false;
-        }
-        
-        if (isValid) {
-          // Aquí normalmente enviarías los datos a un servidor
-          // Por ahora, solo mostraremos un mensaje de confirmación
-          
-          // Mostrar mensaje de éxito
-          showMessage(formSuccessMessage, 5000);
-          
-          // Limpiar formulario
-          contactForm.reset();
-        } else {
-          // Mostrar mensaje de error
-          showMessage(formErrorMessage, 5000);
-          
-          // Hacer scroll suave al primer campo con error
-          const firstError = document.querySelector('.form-input.error, .form-select.error, .form-textarea.error');
-          if (firstError) {
-            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        }
-      });
-    }
-
-    console.log('Placas Madres Conectores Inversos - Página cargada correctamente');
   </script>
 </body>
 </html>
