@@ -552,6 +552,63 @@
         max-height:50vh;
       }
     }
+
+    /* =====================
+       9) SECCIÓN DE MARCAS - NUEVA
+       ===================== */
+    .brands-section {
+      text-align: center;
+      margin: 3rem 0;
+    }
+    
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .brand-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      background: linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    
+    .brand-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-color: rgba(99,102,241,.6);
+      box-shadow: var(--glow);
+    }
+    
+    .brand-logo {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    
+    .brand-name {
+      font-weight: bold;
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .brands-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brands-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
