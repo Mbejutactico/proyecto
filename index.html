@@ -1080,6 +1080,208 @@
         padding: 12px;
       }
     }
+
+    /* =====================
+       14) MEJORAS ESPECÍFICAS PARA LA TARJETA DE PERFIL EN MÓVIL
+       ===================== */
+    
+    /* Estilos base para la tarjeta de perfil */
+    .profile-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 24px;
+    }
+    
+    .profile-image-wrapper {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      border: 3px solid var(--brand);
+    }
+    
+    .profile-name-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    
+    .profile-name {
+      font-size: 1.4rem;
+      margin: 0;
+      font-weight: 700;
+    }
+    
+    .profile-title {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    
+    .profile-specialties {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .specialties-label {
+      font-size: 0.95rem;
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    
+    .specialties-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    
+    .specialty-tag {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+    
+    .profile-contact-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+    
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .contact-btn:hover {
+      background: rgba(255,255,255,.15);
+      transform: translateY(-2px);
+    }
+    
+    /* Adaptaciones para móviles de la tarjeta de perfil */
+    @media (max-width: 768px) {
+      .profile-card {
+        padding: 20px 15px;
+      }
+      
+      .profile-image-wrapper {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 16px;
+      }
+      
+      .profile-name-section {
+        margin-bottom: 16px;
+      }
+      
+      .profile-name {
+        font-size: 1.3rem;
+      }
+      
+      .profile-title {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+      }
+      
+      .profile-specialties {
+        margin-bottom: 18px;
+      }
+      
+      .specialties-label {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+      }
+      
+      .specialties-tags {
+        gap: 6px;
+      }
+      
+      .specialty-tag {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+      }
+      
+      .profile-contact-buttons {
+        gap: 8px;
+      }
+      
+      .contact-btn {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .profile-card {
+        padding: 18px 12px;
+      }
+      
+      .profile-image-wrapper {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 14px;
+      }
+      
+      .profile-name {
+        font-size: 1.2rem;
+      }
+      
+      .profile-title {
+        font-size: 0.8rem;
+      }
+      
+      .specialties-label {
+        font-size: 0.85rem;
+      }
+      
+      .specialty-tag {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+      }
+      
+      .contact-btn {
+        padding: 9px;
+        font-size: 0.85rem;
+      }
+    }
+    
+    /* Para pantallas muy pequeñas, ajustar el layout de especialidades */
+    @media (max-width: 360px) {
+      .specialties-tags {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .specialty-tag {
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1483,36 +1685,37 @@
       <p class="muted">Conoce más sobre el creador detrás de este proyecto.</p>
       
       <div class="about-grid">
-        <!-- Tarjeta de perfil - OPTIMIZADA PARA MÓVILES -->
-        <div class="card profile-image-container">
-          <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; border: 3px solid var(--brand);">
+        <!-- Tarjeta de perfil - MEJORADA CON NUEVOS ESTILOS -->
+        <div class="card profile-card">
+          <div class="profile-image-wrapper">
             <img 
               src="../proyecto/yo.jpeg" 
               alt="Foto de Giovanni Dominguez"
               style="width: 100%; height: 100%; object-fit: cover;"
             >
           </div>
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 16px;">
-            <h3 style="margin: 0; text-align: center;">Giovanni Dominguez</h3>
-            <span class="badge">Técnico en informática</span>
+          
+          <div class="profile-name-section">
+            <h3 class="profile-name">Giovanni Dominguez</h3>
+            <span class="profile-title">Técnico en informática</span>
           </div>
           
-          <!-- Especialidades al lado del nombre -->
-          <div style="margin-bottom: 16px; text-align: center;">
-            <p style="margin: 0 0 8px; font-size: 0.9rem;"><strong>Especialidades:</strong></p>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
-              <span class="badge">Hardware</span>
-              <span class="badge">Diseño de PC</span>
-              <span class="badge">Refrigeración</span>
+          <!-- Especialidades mejor organizadas -->
+          <div class="profile-specialties">
+            <p class="specialties-label">Especialidades:</p>
+            <div class="specialties-tags">
+              <span class="specialty-tag">Hardware</span>
+              <span class="specialty-tag">Diseño de PC</span>
+              <span class="specialty-tag">Refrigeración</span>
             </div>
           </div>
           
-          <!-- Botones de contacto - MEJORADOS PARA MÓVILES -->
-          <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
-            <a href="mailto:giovanniorlando2000@gmail.com" class="btn" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;">
+          <!-- Botones de contacto mejor organizados -->
+          <div class="profile-contact-buttons">
+            <a href="mailto:giovanniorlando2000@gmail.com" class="contact-btn">
               <span>📧</span> Email
             </a>
-            <a href="https://es.linkedin.com/" class="btn" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;">
+            <a href="https://es.linkedin.com/" class="contact-btn">
               <span>💼</span> LinkedIn
             </a>
           </div>
