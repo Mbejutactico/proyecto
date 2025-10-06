@@ -34,6 +34,7 @@
         var(--bg);
       color:var(--text);
       line-height:1.6;
+      overflow-x: hidden; /* Evita scroll horizontal */
     }
     /* Overlay para mejorar legibilidad sobre la imagen de fondo */
     body::before {
@@ -63,7 +64,7 @@
     }
 
     /* =====================
-       2) HEADER Y NAVEGACIÓN
+       2) HEADER Y NAVEGACIÓN - MEJORADO
        ===================== */
     header{
       position:sticky; top:0; z-index:50;
@@ -71,7 +72,7 @@
       background:linear-gradient(to right, rgba(10,10,18,.97), rgba(21,21,34,.97));
       border-bottom:1px solid rgba(255,255,255,.1);
     }
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0; position: relative;}
     .brand{display:flex; gap:12px; align-items:center; font-weight:800; font-size:1.2rem; letter-spacing:.5px}
     .brand .logo{width:32px; height:32px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--brand),var(--brand-2)); border-radius:8px; font-weight:bold; color:white; font-size:14px}
     .nav ul{display:flex; gap:18px; list-style:none; padding:0; margin:0}
@@ -79,12 +80,31 @@
     .nav a:hover{background:rgba(255,255,255,.1); color:var(--text); transform:translateY(-2px)}
     .nav a.active{background:linear-gradient(135deg, rgba(99,102,241,.25), rgba(139,92,246,.2)); color:var(--text); border:1px solid rgba(255,255,255,.15); box-shadow:var(--glow)}
 
-    /* Menú hamburguesa para móvil */
-    .burger{display:none; background:transparent; border:1px solid rgba(255,255,255,.2); color:var(--text); padding:10px 12px; border-radius:10px; font-size:1.1rem}
+    /* Menú hamburguesa para móvil - MEJORADO */
+    .burger{display:none; background:transparent; border:1px solid rgba(255,255,255,.2); color:var(--text); padding:10px 12px; border-radius:10px; font-size:1.1rem; z-index: 60;}
     @media (max-width: 840px){
       .burger{display:inline-flex; align-items:center; gap:8px}
-      .nav ul{position:absolute; left:0; right:0; top:70px; padding:20px; flex-direction:column; background:linear-gradient(to bottom, rgba(10,10,18,.98), rgba(21,21,34,.98)); border-bottom:1px solid rgba(255,255,255,.1); display:none; box-shadow:0 10px 30px rgba(0,0,0,.5)}
-      .nav ul.open{display:flex}
+      .nav ul{
+        position:absolute; 
+        left:0; 
+        right:0; 
+        top:100%; 
+        padding:20px; 
+        flex-direction:column; 
+        background:linear-gradient(to bottom, rgba(10,10,18,.98), rgba(21,21,34,.98)); 
+        border-bottom:1px solid rgba(255,255,255,.1); 
+        display:none; 
+        box-shadow:0 10px 30px rgba(0,0,0,.5);
+        z-index: 55;
+      }
+      .nav ul.open{
+        display:flex;
+        animation: slideDown 0.3s ease;
+      }
+      @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
     }
 
     /* =====================
@@ -243,7 +263,7 @@
     }
 
     /* =====================
-       6) GALERÍA DE IMÁGENES Y MODAL
+       6) GALERÍA DE IMÁGENES Y MODAL - MEJORADO PARA MÓVILES
        ===================== */
     .filters{
       display:flex; 
@@ -270,26 +290,30 @@
       border-color: rgba(99,102,241,.6);
       box-shadow: var(--glow);
     }
+    
+    /* Lightbox mejorado para móviles */
     .lightbox{
       position:fixed; 
       inset:0; 
-      background:rgba(0,0,0,.9); 
-      display:grid; 
-      place-items:center; 
+      background:rgba(0,0,0,.95); 
+      display:flex; 
+      align-items:center; 
+      justify-content:center;
       opacity:0; 
       pointer-events:none; 
       transition:.3s ease; 
       padding:20px;
-      z-index: 100;
+      z-index: 1000;
     }
     .lightbox.open{
       opacity:1; 
       pointer-events:auto
     }
     .lightbox-inner{
-      max-width:min(95vw,1200px); 
+      max-width:min(95vw, 1000px); 
       max-height:90vh; 
-      display:grid; 
+      display:flex; 
+      flex-direction: column;
       gap:16px; 
       background:linear-gradient(145deg, rgba(21,21,34,.98), rgba(10,10,18,.98)); 
       border:1px solid rgba(255,255,255,.15); 
@@ -299,9 +323,10 @@
       backdrop-filter: blur(20px);
     }
     .lightbox img{
-      max-height:75vh; 
+      max-height:65vh; 
       width:auto; 
-      justify-self:center; 
+      max-width: 100%;
+      align-self:center; 
       border-radius:16px;
       box-shadow: 0 20px 40px rgba(0,0,0,.5);
     }
@@ -493,6 +518,39 @@
       .grid.tech, .grid.videos, .grid.audios{grid-template-columns:1fr}
       .specs-table{font-size:0.9rem}
       .specs-table th, .specs-table td{padding:12px 16px}
+      
+      /* Mejoras específicas para galería en móviles */
+      .grid.images{grid-template-columns:repeat(auto-fill, minmax(150px,1fr))}
+      .grid.images img{height:140px}
+      
+      .lightbox-inner{
+        padding:15px;
+        max-height:85vh;
+      }
+      .lightbox img{
+        max-height:55vh;
+      }
+      
+      .filters{
+        justify-content:center;
+      }
+      .filters .btn{
+        padding:10px 14px;
+        font-size:0.9rem;
+      }
+    }
+
+    /* Mejoras para teléfonos muy pequeños */
+    @media (max-width: 480px){
+      .grid.images{grid-template-columns:repeat(2, 1fr)}
+      .grid.images img{height:120px}
+      
+      .lightbox-inner{
+        padding:12px;
+      }
+      .lightbox img{
+        max-height:50vh;
+      }
     }
   </style>
 </head>
@@ -664,7 +722,7 @@
       </div>
     </section>
 
-    <!-- GALERÍA DE IMÁGENES -->
+    <!-- GALERÍA DE IMÁGENES - CORREGIDA Y MEJORADA -->
     <section class="section">
       <h2>🖼️ Galería de Productos</h2>
       <p class="muted">Imágenes de los modelos más innovadores de placas madre con conectores invertidos.</p>
@@ -676,16 +734,45 @@
         <button class="btn" data-filter="gigabyte">Gigabyte</button>
       </div>
 
-    <div id="imageGrid" class="grid images">
-        <img src="https://d1q3zw97enxzq2.cloudfront.net/images/ASUS_TUF_Gaming_B760M.width-702.bgcolor-000.format-webp.webp" alt="Placa madre con conectores inversos (Muestra)" loading="lazy" data-category="asus" />
-        <img src="https://d1q3zw97enxzq2.cloudfront.net/images/h525.width-540.format-webp.webp" alt="Modelo ASUS ROG MAXIMUS Z790 HERO BTF" loading="lazy" data-category="asus" />
-        <img src="https://d1q3zw97enxzq2.cloudfront.net/images/600_1.width-540.format-webp.webp" alt="Modelo MSI Z790 Project Zero" loading="lazy" data-category="msi" />
-        <img src="https://hardzone.es/app/uploads-hardzone.es/2024/07/placa-base-B650E-AORUS-STEALTH-ICE.jpg" alt="Modelo B650E AORUS Stealth Ice (Frontal)" loading="lazy" data-category="gigabyte" />
-        <img src="https://hardzone.es/app/uploads-hardzone.es/2024/07/B650E-AORUS-STEALTH-ICE.jpg" alt="Modelo B650E AORUS Stealth Ice (Trasero)" loading="lazy" data-category="gigabyte" />
-        <img src="https://d1q3zw97enxzq2.cloudfront.net/images/Reverse_Connection_Board.width-702.format-webp.webp" alt="Placa madre con conectores inversos (Muestra de conexion)" loading="lazy" data-category="todos" />
+      <div id="imageGrid" class="grid images">
+        <img src="https://d1q3zw97enxzq2.cloudfront.net/images/ASUS_TUF_Gaming_B760M.width-702.bgcolor-000.format-webp.webp" 
+             alt="Placa madre con conectores inversos (Muestra)" 
+             loading="lazy" 
+             data-category="asus"
+             data-description="Placa madre ASUS TUF Gaming B760M con diseño de conectores traseros para una gestión de cables optimizada." />
+        
+        <img src="https://d1q3zw97enxzq2.cloudfront.net/images/h525.width-540.format-webp.webp" 
+             alt="Modelo ASUS ROG MAXIMUS Z790 HERO BTF" 
+             loading="lazy" 
+             data-category="asus"
+             data-description="ASUS ROG MAXIMUS Z790 HERO BTF - Placa madre premium para gaming con conectores traseros y diseño optimizado." />
+        
+        <img src="https://d1q3zw97enxzq2.cloudfront.net/images/600_1.width-540.format-webp.webp" 
+             alt="Modelo MSI Z790 Project Zero" 
+             loading="lazy" 
+             data-category="msi"
+             data-description="MSI Z790 Project Zero - Innovadora placa base con diseño de conectores traseros para ensamblaje limpio." />
+        
+        <img src="https://hardzone.es/app/uploads-hardzone.es/2024/07/placa-base-B650E-AORUS-STEALTH-ICE.jpg" 
+             alt="Modelo B650E AORUS Stealth Ice (Frontal)" 
+             loading="lazy" 
+             data-category="gigabyte"
+             data-description="Gigabyte B650E AORUS Stealth Ice (Frontal) - Placa base AMD con conectores invertidos y estética minimalista en blanco." />
+        
+        <img src="https://hardzone.es/app/uploads-hardzone.es/2024/07/B650E-AORUS-STEALTH-ICE.jpg" 
+             alt="Modelo B650E AORUS Stealth Ice (Trasero)" 
+             loading="lazy" 
+             data-category="gigabyte"
+             data-description="Gigabyte B650E AORUS Stealth Ice (Trasero) - Vista posterior mostrando la disposición de conectores invertidos." />
+        
+        <img src="https://d1q3zw97enxzq2.cloudfront.net/images/Reverse_Connection_Board.width-702.format-webp.webp" 
+             alt="Placa madre con conectores inversos (Muestra de conexion)" 
+             loading="lazy" 
+             data-category="todos"
+             data-description="Ejemplo de placa madre con diseño de conectores inversos - Todos los puertos ubicados en la parte posterior." />
       </div>
 
-      <!-- Modal / Lightbox -->
+      <!-- Modal / Lightbox - MEJORADO -->
       <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lbCaption">
         <div class="lightbox-inner">
           <div class="top">
@@ -693,6 +780,7 @@
             <button id="lbClose" class="icon-btn" aria-label="Cerrar modal (Esc)">✕</button>
           </div>
           <img id="lbImg" alt="" />
+          <div id="lbDescription" style="color: var(--text); font-size: 0.95rem; line-height: 1.5; margin-top: 10px; text-align: center;"></div>
         </div>
       </div>
     </section>
@@ -960,16 +1048,35 @@
     //  JAVASCRIPT PARA PLACAS MADRES CONECTORES INVERSOS
     // =====================================================
 
-    // 1) Menú hamburguesa para dispositivos móviles
+    // 1) Menú hamburguesa para dispositivos móviles - MEJORADO
     const burger = document.getElementById('burger');
     const menu = document.getElementById('menu');
     if (burger && menu) {
-      burger.addEventListener('click', () => {
+      burger.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evita que el clic se propague
         const open = menu.classList.toggle('open');
         burger.setAttribute('aria-expanded', String(open));
         
         // Cambiar ícono cuando está abierto
         burger.textContent = open ? '✕ Cerrar' : '☰ Menú';
+      });
+
+      // Cerrar menú al hacer clic fuera de él
+      document.addEventListener('click', (e) => {
+        if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) {
+          menu.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+          burger.textContent = '☰ Menú';
+        }
+      });
+
+      // Cerrar menú al hacer clic en un enlace (en móviles)
+      menu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' && window.innerWidth <= 840) {
+          menu.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+          burger.textContent = '☰ Menú';
+        }
       });
     }
 
@@ -1053,10 +1160,11 @@
       });
     }
 
-    // 5) Modal/Lightbox para imágenes
+    // 5) Modal/Lightbox para imágenes - MEJORADO
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lbImg');
     const lightboxCaption = document.getElementById('lbCaption');
+    const lightboxDescription = document.getElementById('lbDescription');
     const lightboxClose = document.getElementById('lbClose');
     
     if (lightbox && imageGrid) {
@@ -1065,10 +1173,12 @@
         if (event.target.tagName === 'IMG') {
           const imgSrc = event.target.getAttribute('src');
           const imgAlt = event.target.getAttribute('alt');
+          const imgDescription = event.target.getAttribute('data-description') || 'Descripción no disponible';
           
           lightboxImg.setAttribute('src', imgSrc);
           lightboxImg.setAttribute('alt', imgAlt);
           lightboxCaption.textContent = imgAlt;
+          lightboxDescription.textContent = imgDescription;
           
           lightbox.classList.add('open');
           document.body.style.overflow = 'hidden'; // Prevenir scroll del body
