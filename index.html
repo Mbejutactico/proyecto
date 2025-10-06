@@ -350,7 +350,7 @@
     }
 
     /* =====================
-       7) COMPARACIÓN Y ESPECIFICACIONES
+       7) COMPARACIÓN Y ESPECIFICACIONES - CORREGIDO PARA MÓVILES
        ===================== */
     .specs-table{
       width:100%;
@@ -358,6 +358,7 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--shadow);
+      display: table;
     }
     .specs-table th, .specs-table td{
       padding: 16px 20px;
@@ -511,13 +512,30 @@
       .thumb, .tech-card, .btn, .cta, .grid.images img{transition:none; transform:none}
     }
 
+    /* =====================
+       MEJORAS ESPECÍFICAS PARA MÓVILES - CORREGIDAS
+       ===================== */
+
     /* Mejoras para tablets y móviles */
     @media (max-width: 768px){
       .section{padding:60px 0}
       .hero{padding:40px 0; min-height: auto}
       .grid.tech, .grid.videos, .grid.audios{grid-template-columns:1fr}
-      .specs-table{font-size:0.9rem}
-      .specs-table th, .specs-table td{padding:12px 16px}
+      
+      /* CORRECCIÓN: Tabla de especificaciones responsiva */
+      .specs-table-container {
+        overflow-x: auto;
+        margin: 0 -5%;
+        width: calc(100% + 10%);
+        padding: 0 5%;
+      }
+      .specs-table {
+        min-width: 600px; /* Ancho mínimo para mantener legibilidad */
+        font-size: 0.85rem;
+      }
+      .specs-table th, .specs-table td {
+        padding: 12px 10px;
+      }
       
       /* Mejoras específicas para galería en móviles */
       .grid.images{grid-template-columns:repeat(auto-fill, minmax(150px,1fr))}
@@ -841,53 +859,56 @@
       </div>
     </section>
 
-    <!-- VENTAJAS Y COMPARACIÓN -->
+    <!-- VENTAJAS Y COMPARACIÓN - CORREGIDA PARA MÓVILES -->
     <section id="ventajas" class="section">
       <h2>💡 Ventajas Principales</h2>
       <p class="muted">Comparativa entre placas madre tradicionales y las nuevas con conectores invertidos.</p>
       
       <div class="card">
-        <table class="specs-table">
-          <thead>
-            <tr>
-              <th>Característica</th>
-              <th>Placa Madre Tradicional</th>
-              <th>Placa Madre Conectores Inversos</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Gestión de cables</strong></td>
-              <td>Cables visibles en el frente</td>
-              <td>Cables ocultos en la parte posterior</td>
-            </tr>
-            <tr>
-              <td><strong>Flujo de aire</strong></td>
-              <td>Obstruido por cables frontales</td>
-              <td>Máxima circulación sin obstáculos</td>
-            </tr>
-            <tr>
-              <td><strong>Estética</strong></td>
-              <td>Cables visibles y desordenados</td>
-              <td>Diseño limpio y minimalista</td>
-            </tr>
-            <tr>
-              <td><strong>Mantenimiento</strong></td>
-              <td>Complejo, requiere reorganización</td>
-              <td>Acceso organizado desde la parte posterior</td>
-            </tr>
-            <tr>
-              <td><strong>Refrigeración</strong></td>
-              <td>Obstruida por cableado frontal</td>
-              <td>Optimizada sin interferencias</td>
-            </tr>
-            <tr>
-              <td><strong>Compatibilidad</strong></td>
-              <td>Estándar universal</td>
-              <td>Requiere gabinetes específicos</td>
-            </tr>
-          </tbody>
-        </table>
+        <!-- Contenedor para hacer la tabla desplazable en móviles -->
+        <div class="specs-table-container">
+          <table class="specs-table">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Placa Madre Tradicional</th>
+                <th>Placa Madre Conectores Inversos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Gestión de cables</strong></td>
+                <td>Cables visibles en el frente</td>
+                <td>Cables ocultos en la parte posterior</td>
+              </tr>
+              <tr>
+                <td><strong>Flujo de aire</strong></td>
+                <td>Obstruido por cables frontales</td>
+                <td>Máxima circulación sin obstáculos</td>
+              </tr>
+              <tr>
+                <td><strong>Estética</strong></td>
+                <td>Cables visibles y desordenados</td>
+                <td>Diseño limpio y minimalista</td>
+              </tr>
+              <tr>
+                <td><strong>Mantenimiento</strong></td>
+                <td>Complejo, requiere reorganización</td>
+                <td>Acceso organizado desde la parte posterior</td>
+              </tr>
+              <tr>
+                <td><strong>Refrigeración</strong></td>
+                <td>Obstruida por cableado frontal</td>
+                <td>Optimizada sin interferencias</td>
+              </tr>
+              <tr>
+                <td><strong>Compatibilidad</strong></td>
+                <td>Estándar universal</td>
+                <td>Requiere gabinetes específicos</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
