@@ -918,6 +918,168 @@
         padding: 20px;
       }
     }
+
+    /* =====================
+       13) MEJORAS ESPECÍFICAS PARA LA SECCIÓN "SOBRE MÍ" EN MÓVIL
+       ===================== */
+    
+    @media (max-width: 768px) {
+      /* Sección "Sobre Mí" - Reorganización completa para móviles */
+      .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      
+      /* Tarjeta de perfil optimizada para móviles */
+      .profile-image-container .card {
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      /* Imagen de perfil más pequeña en móviles */
+      .profile-image-container .card > div:first-child {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 15px;
+      }
+      
+      /* Nombre y especialidades mejor organizados */
+      .profile-image-container .card > div:nth-child(2) {
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 15px;
+      }
+      
+      .profile-image-container .card h3 {
+        font-size: 1.3rem;
+        margin: 0;
+      }
+      
+      /* Especialidades en fila en móviles */
+      .profile-image-container .card > div:nth-child(3) {
+        margin-bottom: 15px;
+      }
+      
+      .profile-image-container .card > div:nth-child(3) > div {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      /* Botones de contacto mejor organizados */
+      .profile-image-container .card > div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+      
+      .profile-image-container .card > div:last-child .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      /* Tarjeta de información personal optimizada */
+      .about-grid .card:last-child {
+        padding: 20px;
+      }
+      
+      .about-grid .card:last-child h3 {
+        font-size: 1.3rem;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      
+      .about-grid .card:last-child p {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      /* Experiencia y educación en columna en móviles */
+      .about-grid .card:last-child > div:first-child > div {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .about-grid .card:last-child > div:first-child > div > div {
+        text-align: center;
+      }
+      
+      .about-grid .card:last-child > div:first-child > div > div h4 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+      
+      .about-grid .card:last-child > div:first-child > div > div ul {
+        padding-left: 0;
+        list-style-position: inside;
+      }
+      
+      /* Proyectos destacados en columna única en móviles */
+      .about-grid .card:last-child > div:last-child .grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .about-grid .card:last-child > div:last-child .tech-card {
+        padding: 15px;
+        text-align: center;
+      }
+      
+      .about-grid .card:last-child > div:last-child .tech-icon {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+      }
+      
+      .about-grid .card:last-child > div:last-child h5 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+      
+      .about-grid .card:last-child > div:last-child p {
+        font-size: 0.85rem;
+        margin-bottom: 0;
+      }
+    }
+    
+    /* Ajustes adicionales para teléfonos muy pequeños */
+    @media (max-width: 480px) {
+      .about-grid {
+        gap: 20px;
+      }
+      
+      .profile-image-container .card {
+        padding: 15px;
+      }
+      
+      .profile-image-container .card > div:first-child {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .profile-image-container .card h3 {
+        font-size: 1.2rem;
+      }
+      
+      .about-grid .card:last-child {
+        padding: 15px;
+      }
+      
+      .about-grid .card:last-child h3 {
+        font-size: 1.2rem;
+      }
+      
+      .about-grid .card:last-child > div:last-child .grid {
+        gap: 12px;
+      }
+      
+      .about-grid .card:last-child > div:last-child .tech-card {
+        padding: 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1314,14 +1476,14 @@
     </section>
 
     <!-- ===================================================== -->
-    <!-- SECCIÓN SOBRE MÍ - CORREGIDA PARA MÓVILES -->
+    <!-- SECCIÓN SOBRE MÍ - MEJORADA PARA MÓVILES -->
     <!-- ===================================================== -->
     <section id="sobre-mi" class="section">
       <h2>👨‍💻 Sobre Mí</h2>
       <p class="muted">Conoce más sobre el creador detrás de este proyecto.</p>
       
       <div class="about-grid">
-        <!-- Tarjeta de perfil -->
+        <!-- Tarjeta de perfil - OPTIMIZADA PARA MÓVILES -->
         <div class="card profile-image-container">
           <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; border: 3px solid var(--brand);">
             <img 
@@ -1330,13 +1492,13 @@
               style="width: 100%; height: 100%; object-fit: cover;"
             >
           </div>
-          <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
-            <h3 style="margin: 0;">Giovanni Dominguez</h3>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 16px;">
+            <h3 style="margin: 0; text-align: center;">Giovanni Dominguez</h3>
             <span class="badge">Técnico en informática</span>
           </div>
           
           <!-- Especialidades al lado del nombre -->
-          <div style="margin-bottom: 16px;">
+          <div style="margin-bottom: 16px; text-align: center;">
             <p style="margin: 0 0 8px; font-size: 0.9rem;"><strong>Especialidades:</strong></p>
             <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
               <span class="badge">Hardware</span>
@@ -1345,26 +1507,26 @@
             </div>
           </div>
           
-          <!-- Botones de contacto -->
-          <div style="display: flex; gap: 10px; justify-content: center; margin-top: 16px;">
-            <a href="mailto:giovanniorlando2000@gmail.com" class="btn" style="display: inline-flex; align-items: center; gap: 8px;">
+          <!-- Botones de contacto - MEJORADOS PARA MÓVILES -->
+          <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+            <a href="mailto:giovanniorlando2000@gmail.com" class="btn" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;">
               <span>📧</span> Email
             </a>
-            <a href="https://es.linkedin.com/" class="btn" style="display: inline-flex; align-items: center; gap: 8px;">
+            <a href="https://es.linkedin.com/" class="btn" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;">
               <span>💼</span> LinkedIn
             </a>
           </div>
         </div>
         
-        <!-- Información personal y profesional -->
+        <!-- Información personal y profesional - REORGANIZADA PARA MÓVILES -->
         <div class="card">
-          <h3>Mi Historia</h3>
-          <p class="muted">Soy un técnico en informática apasionado por la tecnología y el hardware. Mi interés por las placas madre con conectores invertidos nace de la búsqueda constante de mejoras en el diseño y ensamblaje de computadoras, buscando siempre optimizar el rendimiento y la estética de los sistemas.</p>
+          <h3 style="text-align: center;">Mi Historia</h3>
+          <p class="muted" style="text-align: center;">Soy un técnico en informática apasionado por la tecnología y el hardware. Mi interés por las placas madre con conectores invertidos nace de la búsqueda constante de mejoras en el diseño y ensamblaje de computadoras, buscando siempre optimizar el rendimiento y la estética de los sistemas.</p>
           
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px;">
-            <div>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 24px;">
+            <div style="text-align: center;">
               <h4 style="margin: 0 0 12px;">Experiencia</h4>
-              <ul style="margin: 0; padding-left: 20px;">
+              <ul style="margin: 0; padding-left: 0; list-style-position: inside;">
                 <li>Especialista en hardware</li>
                 <li>Técnico en CCTV</li>
                 <li>Consultor en ensamblaje de PC</li>
@@ -1372,9 +1534,9 @@
               </ul>
             </div>
             
-            <div>
+            <div style="text-align: center;">
               <h4 style="margin: 0 0 12px;">Educación</h4>
-              <ul style="margin: 0; padding-left: 20px;">
+              <ul style="margin: 0; padding-left: 0; list-style-position: inside;">
                 <li>Ingeniería en informática (Aun cursando)</li>
                 <li>Técnico en informática</li>
                 <li>Técnico superior en informática-SNPP (Aun cursando)</li>
@@ -1383,21 +1545,21 @@
           </div>
           
           <div style="margin-top: 24px;">
-            <h4>Proyectos Destacados</h4>
-            <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
-              <div class="tech-card" style="padding: 16px;">
+            <h4 style="text-align: center;">Proyectos Destacados</h4>
+            <div class="grid" style="grid-template-columns: 1fr; gap: 16px; margin-top: 16px;">
+              <div class="tech-card" style="padding: 16px; text-align: center;">
                 <div class="tech-icon" style="font-size: 1.5rem; margin-bottom: 8px;">🔌</div>
                 <h5 style="margin: 0 0 8px;">Conectores Invertidos</h5>
                 <p class="muted" style="font-size: 0.85rem; margin: 0;">Investigación y desarrollo de placas madre con diseño invertido</p>
               </div>
               
-              <div class="tech-card" style="padding: 16px;">
+              <div class="tech-card" style="padding: 16px; text-align: center;">
                 <div class="tech-icon" style="font-size: 1.5rem; margin-bottom: 8px;">💨</div>
                 <h5 style="margin: 0 0 8px;">Cooling Innovations</h5>
                 <p class="muted" style="font-size: 0.85rem; margin: 0;">Blog sobre sistemas de refrigeración optimizados</p>
               </div>
               
-              <div class="tech-card" style="padding: 16px;">
+              <div class="tech-card" style="padding: 16px; text-align: center;">
                 <div class="tech-icon" style="font-size: 1.5rem; margin-bottom: 8px;">🔧</div>
                 <h5 style="margin: 0 0 8px;">PC Build Lab</h5>
                 <p class="muted" style="font-size: 0.85rem; margin: 0;">Laboratorio de ensamblaje y pruebas de hardware</p>
