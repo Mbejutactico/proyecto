@@ -780,6 +780,144 @@
         gap: 20px;
       }
     }
+
+    /* =====================
+       12) MODIFICACIONES PARA CENTRAR CONTENIDO EN MÓVIL
+       ===================== */
+    
+    /* Modificaciones para centrar todo en móviles */
+    @media (max-width: 768px) {
+      /* Centrar el header y navegación */
+      header {
+        display: flex;
+        justify-content: center;
+      }
+      
+      .nav {
+        width: 100%;
+        max-width: 100%;
+        justify-content: space-between;
+        padding: 16px 5%;
+      }
+      
+      /* Centrar el menú desplegable */
+      .nav ul {
+        left: 0;
+        right: 0;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .nav ul li {
+        display: flex;
+        justify-content: center;
+      }
+      
+      .nav ul a {
+        width: 90%;
+        justify-content: center;
+        text-align: center;
+      }
+      
+      /* Centrar el contenido principal */
+      main {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 5%;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      
+      /* Centrar el footer */
+      .footer {
+        display: flex;
+        justify-content: center;
+      }
+      
+      .footer .container {
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      /* Asegurar que los elementos se adapten al ancho total */
+      .hero, .section, .card, .grid, .tech-card, .thumb {
+        width: 100%;
+      }
+      
+      /* Centrar texto en móviles */
+      .hero h1, .section h2, .card h3, .tech-card h3, .thumb h3 {
+        text-align: center;
+      }
+      
+      /* Centrar botones en móviles */
+      .cta, .btn {
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      /* Centrar elementos de formulario */
+      .form-group {
+        text-align: center;
+      }
+      
+      .form-input, .form-select, .form-textarea {
+        text-align: center;
+      }
+      
+      /* Centrar filtros de galería */
+      .filters {
+        justify-content: center;
+      }
+      
+      /* Centrar elementos de la sección sobre mí */
+      .profile-image-container {
+        display: flex;
+        justify-content: center;
+      }
+      
+      .about-grid .card > div:last-child > div {
+        text-align: center;
+      }
+      
+      /* Centrar elementos de la sección de contacto */
+      .contact-grid .card > div {
+        text-align: center;
+      }
+      
+      /* Centrar elementos de la tabla de especificaciones */
+      .specs-table th, .specs-table td {
+        text-align: center;
+      }
+    }
+    
+    /* Ajustes adicionales para teléfonos muy pequeños */
+    @media (max-width: 480px) {
+      .nav {
+        padding: 12px 3%;
+      }
+      
+      main {
+        padding: 0 3%;
+      }
+      
+      .hero h1 {
+        font-size: clamp(1.8rem, 3vw + 1rem, 2.5rem);
+      }
+      
+      .section h2 {
+        font-size: clamp(1.4rem, 2.5vw + 1rem, 2rem);
+      }
+      
+      .card {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
